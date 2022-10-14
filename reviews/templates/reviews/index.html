@@ -16,7 +16,7 @@
         <tr>
           <td>{{review.pk}}</td>
           <td>
-            <a href="">{{review.title}}</a>
+            <a href="{% url 'reviews:detail' review.pk %}">{{review.title}}</a>
           </td>
         </tr>
       {% endfor %}
