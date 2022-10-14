@@ -14,7 +14,7 @@
       {% for user in user_list %}
         <tr>
           <td>{{user.pk}}</td>
-          <td>{{user.username}}</td>
+          <td><a href="{% url 'accounts:detail' user.pk %}">{{user.username}}</a></td>
         </tr>
       {% endfor %}
     </tbody>
