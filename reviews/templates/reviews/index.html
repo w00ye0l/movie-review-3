@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+{% block body %}
+  <h1>리뷰 목록</h1>
+  <a href="{% url 'reviews:create' %}">리뷰 작성</a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>PK</th>
+        <th>리뷰 제목</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for review in review_list %}
+        <tr>
+          <td>{{review.pk}}</td>
+          <td>
+            <a href="">{{review.title}}</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+
+  </table>
+{% endblock body %}
