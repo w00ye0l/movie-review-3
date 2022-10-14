@@ -3,18 +3,29 @@
 
 {% block body %}
   <div class="container">
-    <h3>{{review.title}}</h3>
-    <p>{{review.content}}</p>
-    <p>{{review.movie_name}}</p>
-    <p>{{review.grade}}</p>
-    <p>
-      {{review.created_at}}
-      |
-      {{review.updated_at}}</p>
-  </div>
-  <div>
-    <a href="{% url 'reviews:update' review.pk %}">수정</a>
-    <a href="{% url 'reviews:delete' review.pk %}">삭제</a>
-    <a href="{% url 'reviews:index' %}">목록</a>
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">{{review.title}}</h4>
+        <p class="card-text mt-3">
+          {{review.content}}
+        </p>
+        <p>영화 :
+          {{review.movie_name}}
+          | 평점 :
+          {{review.grade}}
+
+        </p>
+        <p>
+          {{review.created_at}}
+          |
+          {{review.updated_at}}</p>
+        <div class='d-flex justify-content-between'>
+          <a href="{% url 'reviews:update' review.pk %}" class="btn btn-outline-success col-3">수정</a>
+          <a href="{% url 'reviews:delete' review.pk %}" class="btn btn-outline-danger col-3">삭제</a>
+          <a href="{% url 'reviews:index' %}" class="btn btn-outline-primary col-3">목록</a>
+        </div>
+
+      </div>
+    </div>
   </div>
 {% endblock body %}

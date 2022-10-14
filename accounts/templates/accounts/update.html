@@ -2,12 +2,15 @@
 {% load bootstrap5 %}
 
 {% block body %}
-  <h1>회원 정보 수정</h1>
+  <div class="container">
 
-  <form action="" method="POST">
-    {% csrf_token %}
-    {% bootstrap_form form %}
-    <input type="submit" value="확인">
-  </form>
+    <h1 class="mb-4">회원 정보 수정</h1>
+
+    <form action="" method="POST">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      <input type="submit" value="수정" class="btn btn-outline-success col-12">
+    </form>
+  </div>
 
 {% endblock body %}

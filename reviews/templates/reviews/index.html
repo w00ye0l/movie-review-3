@@ -2,25 +2,21 @@
 {% load bootstrap5 %}
 
 {% block body %}
-  <h1>리뷰 목록</h1>
-  <a href="{% url 'reviews:create' %}">리뷰 작성</a>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>PK</th>
-        <th>리뷰 제목</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for review in review_list %}
-        <tr>
-          <td>{{review.pk}}</td>
-          <td>
-            <a href="{% url 'reviews:detail' review.pk %}">{{review.title}}</a>
-          </td>
-        </tr>
-      {% endfor %}
-    </tbody>
+  <div class="container">
 
-  </table>
+    <h1>리뷰 목록</h1>
+    <div class="d-flex justify-content-end">
+      <a href="{% url 'reviews:create' %}" class="btn btn-outline-primary">리뷰 작성</a>
+    </div>
+    {% for review in review_list %}
+      <div class="card  mt-3">
+        <div class="card-body">
+          <h5 class="card-title">
+            <a href="{% url 'reviews:detail' review.pk %}">{{review.title}}</a>
+          </h5>
+          <p class="card-text atc-cont">{{review.content}}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 {% endblock body %}

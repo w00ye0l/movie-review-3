@@ -2,21 +2,24 @@
 {% load bootstrap5 %}
 
 {% block body %}
-  {% if request.resolver_match.url_name == 'create' %}
-    <h1>리뷰 작성</h1>
-  {% else %}
-    <h1>리뷰 수정</h1>
-  {% endif %}
-
-  <form action="" method="POST">
-    {% csrf_token %}
-    {% bootstrap_form review_form %}
+  <div class="container">
 
     {% if request.resolver_match.url_name == 'create' %}
-      <input type="submit" value="작성">
+      <h1>리뷰 작성</h1>
     {% else %}
-      <input type="submit" value="수정">
+      <h1>리뷰 수정</h1>
     {% endif %}
-  </form>
+
+    <form action="" method="POST">
+      {% csrf_token %}
+      {% bootstrap_form review_form %}
+
+      {% if request.resolver_match.url_name == 'create' %}
+        <input type="submit" value="작성">
+      {% else %}
+        <input type="submit" value="수정" class="btn btn-success col-12">
+      {% endif %}
+    </form>
+  </div>
 
 {% endblock body %}

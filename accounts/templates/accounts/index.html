@@ -2,22 +2,27 @@
 {% load bootstrap5 %}
 
 {% block body %}
-  <h1>회원 목록</h1>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>PK</th>
-        <th>회원</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for user in user_list %}
-        <tr>
-          <td>{{user.pk}}</td>
-          <td><a href="{% url 'accounts:detail' user.pk %}">{{user.username}}</a></td>
-        </tr>
-      {% endfor %}
-    </tbody>
+  <div class="container">
 
-  </table>
+    <h1>회원 목록</h1>
+    <table class="table table-hover table-striped table-borderless mt-3">
+      <thead>
+        <tr class='table-dark '>
+          <th>PK</th>
+          <th>회원</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in user_list %}
+          <tr>
+            <td>{{user.pk}}</td>
+            <td>
+              <a href="{% url 'accounts:detail' user.pk %}">{{user.username}}</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+
+    </table>
+  </div>
 {% endblock body %}
