@@ -2,13 +2,15 @@
 {% load bootstrap5 %}
 
 {% block body %}
-
-  <h1>로그인</h1>
-
-  <form action="" method="POST">
-    {% csrf_token %}
-    {% bootstrap_form form %}
-    <input type="submit" value="확인">
-  </form>
+  <div class="container ">
+    <h2>로그인</h2>
+    <div class="d-flex justify-content-center mt-4">
+      <form action="" method="POST">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" value="로그인" class="btn btn-primary col-12 ">
+      </form>
+    </div>
+  </div>
 
 {% endblock body %}

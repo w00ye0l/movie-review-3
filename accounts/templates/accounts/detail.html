@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
 
 {% block body %}
+  <div class="container">
+    <h1>{{ user.username }}님의 프로필</h1>
 
-  <h1>{{ user.username }}님의 프로필</h1>
-
-  <a href="{% url 'accounts:update' %}">수정</a>
+    {% if request.user.is_authenticated %}
+      <div class='d-flex justify-content-center mt-5'>
+        <a href="{% url 'accounts:update' %}" class="btn btn-outline-success col-4">수정</a>
+      {% endif %}
+    </div>
+  </div>
 
 {% endblock body %}
