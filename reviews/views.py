@@ -25,9 +25,25 @@ def create(request):
     return render(request, "reviews/create.html", context)
 
 
-def detail(request, reviews_pk):
-    review = Review.objects.get(pk=reviews_pk)
+def detail(request, review_pk):
+    review = Review.objects.get(pk=review_pk)
     context = {
         "review": review,
     }
     return render(request, "reviews/detail.html", context)
+
+
+def update(request, review_pk):
+    review = Review.objects.get(pk=review_pk)
+
+    if request.method == "POST":
+        review_form = ReviewForm(request.POST, instance=review)
+        if review_form.is_valid():
+            review_form.save()
+            return redirect("reviews:detail", review.pk)
+    else:
+        review_form = ReviewForm(instance=review)
+    context = {
+        "review_form": review_form,
+    }
+    return render(request, "reviews/update.html", context)
