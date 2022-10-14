@@ -22,7 +22,7 @@ def create(request):
     context = {
         "review_form": review_form,
     }
-    return render(request, "reviews/create.html", context)
+    return render(request, "reviews/form.html", context)
 
 
 def detail(request, review_pk):
@@ -46,7 +46,7 @@ def update(request, review_pk):
     context = {
         "review_form": review_form,
     }
-    return render(request, "reviews/update.html", context)
+    return render(request, "reviews/form.html", context)
 
 
 def delete(request, review_pk):
