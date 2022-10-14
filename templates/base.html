@@ -9,13 +9,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     {% bootstrap_css %}
-    {% bootstrap_javascript %}
   </head>
 
   <body>
+    <header>
+      <nav class="navbar  navbar-expand-md  navbar-dark bg-dark">
+        <div class="container">
+          <div>
+            <a href="{% url 'accounts:index' %}" class="navbar-brand">logo</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+              {% if request.user.is_authenticated%}
+                <li class="nav-item">
+                  <a href="" class="nav-link">목록</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'accounts:logout' %}" class="nav-link">로그아웃</a>
+                </li>
+              {% else %}
+                <li class="nav-item">
+                  <a href="{% url 'accounts:signup' %}" class="nav-link">회원가입</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'accounts:login' %}" class="nav-link">로그인</a>
+                </li>
+
+              {% endif %}
+            </ul>
+          </div>
+
+        </div>
+      </nav>
+    </header>
     <div class="container">
       {% block body %}{% endblock body %}
     </div>
+    {% bootstrap_javascript %}
   </body>
 
 </html>
