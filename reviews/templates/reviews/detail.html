@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+{% block body %}
+  <div class="container">
+    <h3>{{review.title}}</h3>
+    <p>{{review.content}}</p>
+    <p>{{review.movie_name}}</p>
+    <p>{{review.grade}}</p>
+    <p>
+      {{review.created_at}}
+      |
+      {{review.updated_at}}</p>
+  </div>
+  <div>
+    <a href="">수정</a>
+    <a href="">삭제</a>
+  </div>
+{% endblock body %}
